@@ -20,9 +20,11 @@ import { apiClient } from "@/lib/api-client";
 import { HOST, SEARCH_CONTACTS_ROUTES } from "@/utils/constants";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { useAppStore } from "@/store";
   
 
 const NewDM = () => {
+  const {setSelectedChatType, setSelectedChatData} = useAppStore()
     const [openNewContactModal, setOpenNewContactModal] = useState(false)
     const [searchedContacts, setSearchedContacts] = useState([])
 
@@ -39,6 +41,13 @@ const NewDM = () => {
       } catch(error) {
         console.log({error})
       }
+    }
+
+    const selectNewContact = (contact) => {
+      setOpenNewContactModal(false)
+      setSelectedChatType("contact")
+      setSelectedChatData(contact)
+      setSearchedContacts([])
     }
 
   return (
@@ -65,11 +74,13 @@ const NewDM = () => {
       <Input placeholder="Search Contacts" className="rounded-lg p-6 bg-[#2c2e3b] border-none"
       onChange={e=> searchContacts(e.target.value)}/>
     </div>
+    {
+      searchedContacts.length>0 && ( 
     <ScrollArea className="h-[250px]">
       <div className="flex flex-col gap-5">
         {
           searchedContacts.map(contact=><div key={contact._id}
-          className="flex gap-3 items-center cursor-pointer">
+          className="flex gap-3 items-center cursor-pointer" onClick={() => selectNewContact(contact)}>
              <div className="w-12 h-12 relative">
             <Avatar className="h-12 w-12 rounded-full overflow-hidden">
               {
@@ -92,9 +103,10 @@ const NewDM = () => {
         }
       </div>
     </ScrollArea>
+      )}
     {
       searchedContacts.length<=0 && (
-      <div className="flex-1 md:bg-[#1c1d25] md:flex mt-5 flex-col justify-center items-center duration-1000 transition-all">
+      <div className="flex-1 md:flex mt-5 md:mt-0 flex-col justify-center items-center duration-1000 transition-all">
       <Lottie 
       isClickToPauseDisabled={true}
       height={100}
