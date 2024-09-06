@@ -1,6 +1,6 @@
 import Message from "../models/MessagesModel.js";
 
-export const searchContacts = async (request, response, next) => {
+export const getMessages = async (request, response, next) => {
     try {
       const user1 = request.userId
       const user2 = request.body.id
