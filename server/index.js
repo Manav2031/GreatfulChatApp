@@ -13,9 +13,11 @@ const app = express(); //REST object
 const port = process.env.PORT || 8000;
 const databaseURL = process.env.DATABASE_URL;
 
+const allowedOrigins = ['https://greatful-chat-app.vercel.app'];
+
 app.use(
   cors({
-    origin: '*',
+    origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
   })
