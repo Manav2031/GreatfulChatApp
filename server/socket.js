@@ -1,10 +1,12 @@
 import { Server as SocketIOServer } from "socket.io";
 import Message from "./models/MessagesModel.js";
 
+const allowedOrigins = ['https://greatful-chat-app.vercel.app'];
+
 const setupSocket = (server) => {
   const io = new SocketIOServer(server, {
     cors: {
-      origin: process.env.ORIGIN,
+      origin: allowedOrigins,
       methods: ["GET", "POST"],
       credentials: true,
     },
