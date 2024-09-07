@@ -40,6 +40,11 @@ const ContactsContainer = () => {
           <Title text="Groups"/>
         </div>
       </div>
+      <div className="my-5">
+        <div className="flex items-center justify-between pr-10">
+          <a href="/meeting" target="_blank"> <Title text="Start a Meeting"/> </a>
+        </div>
+      </div>
       <ProfileInfo />
       </div>
   )
