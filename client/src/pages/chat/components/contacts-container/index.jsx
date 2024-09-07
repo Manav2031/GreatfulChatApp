@@ -5,6 +5,7 @@ import { apiClient } from "@/lib/api-client";
 import { GET_DM_CONTACTS_ROUTES } from "@/utils/constants";
 import { useAppStore } from "@/store";
 import ContactList from "@/components/contact-list";
+import { Link } from "react-router-dom";
 
 const ContactsContainer = () => {
 
@@ -42,7 +43,7 @@ const ContactsContainer = () => {
       </div>
       <div className="my-5">
         <div className="flex items-center justify-between pr-10">
-          <a href="/meeting" target="_blank"> <Title text="Start a Meeting"/> </a>
+          <Link to="/meeting" target="_blank"> <Title text="Start a Meeting"/> </Link>
         </div>
       </div>
       <ProfileInfo />
