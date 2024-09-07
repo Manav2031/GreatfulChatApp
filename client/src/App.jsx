@@ -62,8 +62,8 @@ const App = () => {
       <Route path="/auth" element={<AuthRoute> <Auth /> </AuthRoute>} />
       <Route path="/chat" element={<PrivateRoute> <Chat /> </PrivateRoute>} />
       <Route path="/profile" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
-      <Route path="/meeting" element={<PrivateRoute> <Meeting /> </PrivateRoute>} />
-      <Route path="/room/:roomId" element={<PrivateRoute> <Room /> </PrivateRoute>} />
+      <Route path="/meeting" element={<Meeting />} />
+      <Route path="/room/:roomId" element={<Room />} />
       <Route path="*" element={<Navigate to="/auth" />} />
     </Routes>
     </BrowserRouter>
