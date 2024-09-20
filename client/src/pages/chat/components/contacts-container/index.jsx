@@ -46,6 +46,11 @@ const ContactsContainer = () => {
           <Link to="/meeting"> <Title text="Start a Meeting"/> </Link>
         </div>
       </div>
+      <div className="my-5">
+        <div className="flex items-center justify-between pr-10">
+          <Link to="/pay"> <Title text="Buy Me a Cup of Coffee"/> </Link>
+        </div>
+      </div>
       <ProfileInfo />
       </div>
   )

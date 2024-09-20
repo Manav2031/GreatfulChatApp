@@ -9,6 +9,7 @@ import { apiClient } from './lib/api-client'
 import { GET_USER_INFO } from './utils/constants'
 import Meeting from './components/Meeting'
 import Room from './components/Room'
+import Pay from './components/Pay'
 
 const PrivateRoute = ({children}) => {
   const {userInfo} = useAppStore();
@@ -64,6 +65,7 @@ const App = () => {
       <Route path="/profile" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
       <Route path="/meeting" element={<PrivateRoute> <Meeting /> </PrivateRoute>} />
       <Route path="/room/:roomId" element={<PrivateRoute> <Room /> </PrivateRoute>} />
+      <Route path="/pay" element={<PrivateRoute> <Pay /> </PrivateRoute>} />
       <Route path="*" element={<Navigate to="/auth" />} />
     </Routes>
     </BrowserRouter>

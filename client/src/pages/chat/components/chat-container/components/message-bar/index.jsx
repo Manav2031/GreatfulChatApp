@@ -9,6 +9,7 @@ import { RiEmojiStickerLine } from "react-icons/ri"
 const MessageBar = () => {
   const [message, setMessage] = useState("")
   const emojiRef = useRef()
+  const fileInputRef = useRef()
   const socket = useSocket()
   const {selectedChatType, selectedChatData, userInfo} = useAppStore()
   const [emojiPickerOpen, setEmojiPickerOpen] = useState(false)
@@ -41,14 +42,21 @@ const MessageBar = () => {
     }
   }
 
+  const handleAttachmentClick = () => {
+    if(fileInputRef.current) {
+      fileInputRef.current.click()
+    }
+  }
+
   return (
     <div className="h-[10vh] bg-[#1c1d25] flex justify-center items-center px-8 mb-6 gap-6">
       <div className="flex-1 flex bg-[#2a2b33] rounded-md items-center gap-5 pr-5">
         <input type="text" className="flex-1 p-5 bg-transparent rounded-md focus:border-none focus:outline-none" placeholder="Enter Message" value={message}
         onChange={(e) => setMessage(e.target.value)}/>
-        <button className="text-neutral-500 focus:border-none focus:outline-none focus:text-white duration-300 transition-all">
+        <button onClick={handleAttachmentClick} className="text-neutral-500 focus:border-none focus:outline-none focus:text-white duration-300 transition-all">
           <GrAttachment className="text-2xl"/>
         </button>
+        <input type="file" className="hidden" ref={fileInputRef} onChange={handleAttachmentClick}/>
         <div className="relative">
         <button className="text-neutral-500 focus:border-none focus:outline-none focus:text-white duration-300 transition-all"
         onClick={() => setEmojiPickerOpen(true)}>

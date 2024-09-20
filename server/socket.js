@@ -1,7 +1,7 @@
 import { Server as SocketIOServer } from "socket.io";
 import Message from "./models/MessagesModel.js";
 
-const allowedOrigins = ['https://greatful-chat-app.vercel.app'];
+const allowedOrigins = ['https://greatful-chat-app.vercel.app', 'http://localhost:5173'];
 
 const setupSocket = (server) => {
   const io = new SocketIOServer(server, {
