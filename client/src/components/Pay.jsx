@@ -78,7 +78,6 @@ const Pay = () => {
       })
       .then((res) => {
         console.log(res.data)
-        navigate("/chat")
       })
       .catch((error) => console.log("Error sending payment success email:", error));
       },
