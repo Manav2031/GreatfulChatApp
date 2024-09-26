@@ -7,7 +7,7 @@ import { colors, getColor } from "@/lib/utils"
 import {FaTrash, FaPlus} from "react-icons/fa"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { toast } from "sonner"
+import { toast } from "react-hot-toast"
 import { apiClient } from "@/lib/api-client"
 import { ADD_PROFILE_IMAGE_ROUTE, HOST, REMOVE_PROFILE_IMAGE_ROUTE, UPDATE_PROFILE_ROUTE } from "@/utils/constants"
 
@@ -34,11 +34,11 @@ const Profile = () => {
 
   const validateProfile = () => {
     if(!firstName) {
-      toast.error("First Name is required.")
+      toast.error("First Name is required", {duration: 5000})
       return false
     }
     if(!lastName) {
-      toast.error("Last Name is required.")
+      toast.error("Last Name is required", {duration: 5000})
       return false
     }
     return true
@@ -51,7 +51,7 @@ const Profile = () => {
         const response = await apiClient.post(UPDATE_PROFILE_ROUTE, {firstName, lastName, color:selectedColor}, {withCredentials:true})
         if(response.status===200 && response.data) {
           setUserInfo({...response.data})
-          toast.success("Profile updated successfully.")
+          toast.success("Profile updated successfully", {duration: 5000})
           navigate("/chat")
         }
       } catch(error) {
@@ -64,7 +64,7 @@ const Profile = () => {
     if(userInfo.profileSetup) {
       navigate("/chat")
     } else {
-      toast.error("Please setup profile.")
+      toast.error("Please setup profile", {duration: 5000})
     }
   }
 
@@ -80,7 +80,7 @@ const Profile = () => {
       const response = await apiClient.post(ADD_PROFILE_IMAGE_ROUTE, formData, {withCredentials:true})
       if(response.status===200 && response.data.image) {
         setUserInfo({...userInfo, image:response.data.image})
-        toast.success("Image updated successfully.")
+        toast.success("Image updated successfully", {duration: 5000})
       }
       // const reader = new FileReader()
       // reader.onload = () => {
@@ -95,7 +95,7 @@ const Profile = () => {
       const response = await apiClient.delete(REMOVE_PROFILE_IMAGE_ROUTE, {withCredentials:true})
       if(response.status === 200) {
         setUserInfo({...userInfo, image:null})
-        toast.success("Image removed successfully.")
+        toast.success("Image removed successfully", {duration: 5000})
         setImage(null)
       }
     } catch (error) {

@@ -7,6 +7,7 @@ import authRoutes from "./routes/AuthRoutes.js";
 import contactsRoutes from "./routes/ContactRoutes.js";
 import messagesRoutes from "./routes/MessagesRoutes.js";
 import paymentsRoutes from "./routes/PaymentsRoutes.js";
+import channelRoutes from "./routes/ChannelRoutes.js";
 import setupSocket from "./socket.js";
 
 dotenv.config(); //All the environment variables will be inside process.env
@@ -35,6 +36,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/contacts", contactsRoutes);
 app.use("/api/messages", messagesRoutes);
 app.use("/api/payments", paymentsRoutes);
+app.use("/api/channel", channelRoutes);
 
 const server = app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);

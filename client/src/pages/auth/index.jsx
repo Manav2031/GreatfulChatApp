@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useState } from 'react'
-import { toast } from 'sonner'
+import { toast } from 'react-hot-toast'
 import {apiClient} from '@/lib/api-client'
 import { LOGIN_ROUTE, SIGNUP_ROUTE } from '@/utils/constants'
 import { useNavigate } from 'react-router-dom'
@@ -19,19 +19,19 @@ const Auth = () => {
 
   const validateSignup = () => {
     if(!email.length) {
-      toast.error("Email is required.")
+      toast.error("Email is required", {duration: 5000})
       return false
     }
     if(!password.length) {
-      toast.error("Password is required.")
+      toast.error("Password is required", {duration: 5000})
       return false
     }
     if(!confirmPassword.length) {
-      toast.error("Confirm Password is required.")
+      toast.error("Confirm Password is required", {duration: 5000})
       return false
     }
     if(password !== confirmPassword) {
-      toast.error("Password and confirm password should be same.")
+      toast.error("Password and confirm password should be same", {duration: 5000})
       return false
     }
     return true
@@ -39,11 +39,11 @@ const Auth = () => {
 
   const validateLogin = () => {
     if(!email.length) {
-      toast.error("Email is required.")
+      toast.error("Email is required", {duration: 5000})
       return false
     }
     if(!password.length) {
-      toast.error("Password is required.")
+      toast.error("Password is required", {duration: 5000})
       return false
     }
     return true
@@ -65,6 +65,7 @@ const Auth = () => {
       const response=await apiClient.post(LOGIN_ROUTE, {email, password}, {withCredentials: true})
       if(response.data.user.id) {
         setUserInfo(response.data.user)
+        toast.success("Login Successful", {duration: 5000})
         if(response.data.user.profileSetup) 
           navigate("/chat")
         else

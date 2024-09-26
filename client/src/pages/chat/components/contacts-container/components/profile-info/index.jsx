@@ -1,4 +1,5 @@
 import { Avatar, AvatarImage } from "@/components/ui/avatar"
+import { toast } from "react-hot-toast"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { getColor } from "@/lib/utils"
 import { useAppStore } from "@/store"
@@ -16,6 +17,7 @@ const ProfileInfo = () => {
       try {
         const response=await apiClient.post(LOGOUT_ROUTE,{},{withCredentials:true})
         if(response.status===200) {
+          toast.success("Logout successful")
           navigate("/auth")
           setUserInfo(null)
         }
