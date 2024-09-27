@@ -17,6 +17,7 @@ export const UPLOAD_FILE_ROUTE = `${MESSAGES_ROUTES}/upload-file`;
 export const CHANNEL_ROUTES = "api/channel";
 export const CREATE_CHANNEL_ROUTE = `${CHANNEL_ROUTES}/create-channel`;
 export const GET_USER_CHANNELS_ROUTE = `${CHANNEL_ROUTES}/get-user-channels`;
+export const GET_CHANNEL_MESSAGES = `${CHANNEL_ROUTES}/get-channel-messages`;
 export const PAYMENTS_ROUTES = "api/payments";
 export const GET_ORDERS_ROUTE = `${PAYMENTS_ROUTES}/orders`;
 export const GET_PAYMENT_ROUTE = `${PAYMENTS_ROUTES}/payment/:paymentId`;
