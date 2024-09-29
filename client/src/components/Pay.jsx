@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Button } from './ui/button';
 import { useAppStore } from '@/store';
 import { useNavigate } from 'react-router-dom';
 
@@ -107,10 +106,10 @@ const Pay = () => {
   
   
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center h-screen bg-purple-700">
       <form onSubmit={(e) => {e.preventDefault(); createRazorpayOrder(amount);}} className="bg-white p-6 rounded shadow-md flex flex-col items-center">
         <div className="mb-4">
-          <label className="block text-center text-gray-700 text-sm font-bold mb-2">
+          <label className="block text-center text-richblack-900 text-sm font-bold mb-2">
             Enter Amount
           </label>
           <input
@@ -119,13 +118,13 @@ const Pay = () => {
             type="text"
             required
             placeholder="Enter Amount"
-            className="w-full px-3 py-2 border text-center rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border text-center rounded-md focus:outline-2 focus:outline-purple-50"
           />
         </div>
-        <Button className="text-center rounded-full p-6"> Pay </Button>
-        <Button onClick={handleManualNavigation} className="text-center rounded-full p-6 mt-4">
+        <button className="w-full bg-purple-300 py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900"> Pay </button>
+        <button onClick={handleManualNavigation} className="w-full bg-purple-300 py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900">
         Go to Chat
-      </Button>
+      </button>
       </form>
       {/* {responseId && <p> {responseId} </p>}
         <h1> This is payment verification form </h1>

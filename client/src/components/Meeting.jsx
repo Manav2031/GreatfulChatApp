@@ -12,10 +12,10 @@ const Meeting = () => {
   }
   
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <div className="flex items-center justify-center h-screen bg-purple-700">
       <form onSubmit={handleFormSubmit} className="bg-white p-6 rounded shadow-md flex flex-col items-center">
         <div className="mb-4">
-          <label className="block text-center text-gray-700 text-sm font-bold mb-2">
+          <label className="block text-center text-richblack-900 text-sm font-bold mb-2">
             Enter Room Code
           </label>
           <input
@@ -24,10 +24,10 @@ const Meeting = () => {
             type="text"
             required
             placeholder="Enter Room Code"
-            className="w-full px-3 py-2 border text-center rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border text-center rounded-md focus:outline-2 focus:outline-purple-50"
           />
         </div>
-        <Button className="text-center rounded-full p-6"> Enter Room </Button>
+        <Button className="w-full bg-purple-300 py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900"> Enter Room </Button>
       </form>
     </div>
   );
