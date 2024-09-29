@@ -39,7 +39,7 @@ const Pay = () => {
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: "http://localhost:5000/api/payments/orders",
+      url: "https://greatfulchatapp.onrender.com/api/payments/orders",
       headers: {
         'Content-Type': 'application/json'
       },
@@ -70,7 +70,7 @@ const Pay = () => {
       image: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OCIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDc4IDMyIiBmaWxsPSJub25lIj48cGF0aCBkPSJNNTUuNSAwSDc3LjVMNTguNSAzMkgzNi41TDU1LjUgMFoiIGZpbGw9IiM4MzM4ZWMiPjwvcGF0aD48cGF0aCBkPSJNMzUuNSAwSDUxLjVMMzIuNSAzMkgxNi41TDM1LjUgMFoiIGZpbGw9IiM5NzVhZWQiPjwvcGF0aD48cGF0aCBkPSJNMTkuNSAwSDMxLjVMMTIuNSAzMkgwLjVMMTkuNSAwWiIgZmlsbD0iI2ExNmVlOCI+PC9wYXRoPjwvc3ZnPg==',
       handler: function (response) {
       setResponseId(response.razorpay_payment_id);
-      axios.post('http://localhost:5000/api/payments/success', {
+      axios.post('https://greatfulchatapp.onrender.com/api/payments/success', {
         paymentId: response.razorpay_payment_id,
         email: userInfo.email,
         amount: amount,
